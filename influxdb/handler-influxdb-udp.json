@@ -1,0 +1,15 @@
+{
+  "handlers": {
+    "influxdb_udp": {
+      "type": "udp",
+      "socket": {
+        "host": "influxdb",
+        "port": 8089,
+		"username" : "admin",
+		"password" : "metrics",
+		"database" : "telegraf"
+      },
+      "mutator": "influxdb_line_protocol"
+    }
+  }
+}

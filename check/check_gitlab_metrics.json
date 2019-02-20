@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "prometheus_metrics": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/sensu-prometheus-collector -exporter-url PROMETHEUS_HOST_URL -metric-prefix gitlab.metrics.",
+      "subscribers": ["app_tier"],
+      "interval": 60,
+      "handlers": [
+		      "debug",
+	          "influxdb-tcp"
+	    ]
+    }
+  }
+}

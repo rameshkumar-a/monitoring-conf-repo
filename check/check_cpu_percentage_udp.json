@@ -1,0 +1,19 @@
+{
+  "checks": {
+      "cpu-metrics": {
+           "command": "/opt/sensu/embedded/bin/metrics-cpu-pcnt-usage.rb",
+           "handlers": [
+	          "influxdb_udp"
+	    ],
+	   "interval": 60,
+	   "subscribers": [
+	          "system"
+	     ],
+	   "type": "metric",
+	   "standalone": false,
+	   "tags": {
+	       "group": "operations"
+	    }
+      }
+   }
+}

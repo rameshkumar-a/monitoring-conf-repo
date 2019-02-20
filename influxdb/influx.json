@@ -1,0 +1,9 @@
+{
+    "influxdb": {
+        "host"          : "influxdb",
+        "port"          : "8086",
+        "username"      : "metrics",
+		"password"		: "influxdb_password",
+		"database"		: "metrics"
+    }
+}

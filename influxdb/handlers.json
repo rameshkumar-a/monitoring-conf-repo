@@ -1,0 +1,8 @@
+{
+  "handlers": {
+    "influxdb-tcp": {
+       "type": "pipe",
+       "command": "/etc/sensu/plugins/metrics-influxdb.rb"
+    }
+  }
+}

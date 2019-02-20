@@ -1,0 +1,12 @@
+{
+    "handlers": {
+        "mattermost": {
+            "type": "pipe",
+            "command": "/etc/sensu/plugins/handler-mattermost.rb"            
+        }
+    },
+    "mattermost": {
+    "username": "MATTERMOST_USER_NAME",
+    "url": "MATTERMOST_URL"
+  }
+}

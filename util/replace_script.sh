@@ -1,0 +1,9 @@
+echo $1 $2 $3
+
+SEARCH_STRING=$1
+REPLACE_STRING=$2
+FILE_NAME=$3
+
+echo $1 "search_string"
+
+sed "s#$SEARCH_STRING#$REPLACE_STRING#" $FILE_NAME > $FILE_NAME.bk && mv $FILE_NAME.bk $FILE_NAME

@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "disk_alert_check": {     
+      "command": "/opt/sensu/embedded/bin/check-disk-usage.rb -w :::disk.warning|80::: -c :::disk.critical|90:::",
+	  "handlers": [
+		    "debug",
+	        "mattermost"
+	    ],
+      "severities": [
+	           "warning",
+	           "critical"
+		    ],
+      "subscribers": [
+        "system"
+      ],	  
+      "interval": 60    
+    }
+  }
+}
