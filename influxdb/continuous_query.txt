@@ -1,0 +1,8 @@
+# DDL
+CREATE DATABASE metrics_1
+CREATE CONTINUOUS QUERY "3_max_cpu" ON "metrics" BEGIN   SELECT top(value, host, 3) as max_value into max_cpu  FROM cpu WHERE time >= now() - 6h GROUP BY time(30s) END
+CREATE CONTINUOUS QUERY "3_max_memory" ON "metrics" BEGIN   SELECT top(value, host, 3) as max_value into max_memory  FROM memory WHERE time >= now() - 6h GROUP BY time(30s) END
+CREATE CONTINUOUS QUERY "3_max_network_in" ON "metrics" BEGIN   SELECT top(value, host, 3) as max_value into max_network_in  FROM network_in WHERE time >= now() - 6h GROUP BY time(30s) END
+CREATE CONTINUOUS QUERY "3_max_network_out" ON "metrics" BEGIN   SELECT top(value, host, 3) as max_value into max_network_out  FROM network_out WHERE time >= now() - 6h GROUP BY time(30s) END
+CREATE CONTINUOUS QUERY "3_max_disk_usage" ON "metrics" BEGIN   SELECT top(value, host, 3) as max_value into max_disk_usage  FROM disk_usage WHERE time >= now() - 6h GROUP BY time(30s) END
+CREATE CONTINUOUS QUERY "3_max_disk_io" ON "metrics" BEGIN   SELECT top(value, host, 3) as max_value into max_disk_io  FROM disk_io WHERE time >= now() - 6h GROUP BY time(30s) END
