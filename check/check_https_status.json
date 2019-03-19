@@ -1,7 +1,7 @@
 {
   "checks": {
     "CHECK_NAME": {
-      "command": "/usr/lib/nagios/plugins/check_http -H HOST_URL",
+      "command": "/usr/lib/nagios/plugins/check_http -S -H HOST_URL",
 	  "handlers": [
 		    "debug",
 	        "mattermost"
