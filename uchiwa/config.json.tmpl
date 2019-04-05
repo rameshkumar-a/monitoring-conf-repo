@@ -1,0 +1,31 @@
+{
+  {{ if .SENSU_DC_NAME }}
+  "sensu": [
+    {
+      "name": {{ .SENSU_DC_NAME | quote }},
+      "host": {{ .SENSU_HOSTNAME | quote }},
+      "port": {{ default "4567" .SENSU_SERVICE_PORT }}
+    }
+  ],
+  {{ end }}
+  "uchiwa": {
+    "host": {{ default "0.0.0.0" .UCHIWA_BIND  | quote }},
+    "port": {{ default "3000" .UCHIWA_SERVICE_PORT }},
+    "refresh": {{ default "10" .UCHIWA_REFRESH }},
+    "loglevel": {{ default "info" .UCHIWA_LOG_LEVEL | quote }},
+     "users": [
+      {
+        "username" : "admin",
+        "password":  {{ default "secret" .UCHIWA_ADMIN_PASSWORD }},
+        "accessToken": "vFzX6rFDAn3G9ieuZ4ZhN-XrfdRow4Hd5CXXOUZ5NsTw4h3k3l4jAw__",
+        "readonly": false
+      },
+      {
+        "username" : "guest",
+        "password": {{ default "secret" .UCHIWA_GUEST_PASSWORD }},
+        "accessToken": "hrKMW3uIt2RGxuMIoXQ-bVp-TL1MP4St5Hap3KAanMxI3OovFV48ww__",
+        "readonly": true
+      }
+    ]
+  }
+}
