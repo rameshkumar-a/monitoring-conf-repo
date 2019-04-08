@@ -16,13 +16,13 @@
      "users": [
       {
         "username" : "admin",
-        "password":  "admin",
+        "password":  {{ default "admin" .UCHIWA_ADMIN_PASSWORD }},
         "accessToken": "vFzX6rFDAn3G9ieuZ4ZhN-XrfdRow4Hd5CXXOUZ5NsTw4h3k3l4jAw__",
         "readonly": false
       },
       {
         "username" : "guest",
-        "password": "guest",
+        "password":{{ default "guest" .UCHIWA_GUEST_PASSWORD }},
         "accessToken": "hrKMW3uIt2RGxuMIoXQ-bVp-TL1MP4St5Hap3KAanMxI3OovFV48ww__",
         "readonly": true
       }
