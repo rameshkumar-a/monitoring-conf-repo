@@ -1,7 +1,7 @@
 {
   "checks": {
     "cpu_alert_check": {     
-      "command": "/opt/sensu/embedded/bin/check-cpu.rb",
+      "command": "check-influxdb-query.rb --host 10.184.42.36 --port 8086 -q 'SELECT mean(value)*100 AS value FROM cpu WHERE time >= now() - 10m' -j '$..value' -w 'value >= 5' --database metrics --host 10.184.42.36 --port 8086 -u 'admin' -p 'D3v0psD3v0ps!' -c 'value >=10'",
 	  "handlers": [
 		    "debug",
 	        "mattermost"
