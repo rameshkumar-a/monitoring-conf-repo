@@ -1,7 +1,7 @@
 {
   "checks": {
     "cpu_alert_check": {     
-      "command": "check-influxdb-query.rb -q \"SELECT mean(value) AS value FROM cpu WHERE time >= now() - 10m and host ='$CLIENT_NAME'\" -j '$..value' -w 'value >= 80' --database metrics --host HOST_NAME --port 80 -u 'admin' -p 'ADMIN_PASSWORD' -c 'value >=95'",
+      "command": "check-influxdb-query.rb -q \"SELECT mean(value) AS value FROM cpu WHERE time >= now() - 10m and host ='$CLIENT_NAME'\" -j '$..value' -w 'value >= 80' --database metrics --host HOST_NAME --port 80 -u 'admin' -p :::influxdb.password|password::: -c 'value >=95'",
 	  "handlers": [
 		    "debug",
 	        "mattermost"
